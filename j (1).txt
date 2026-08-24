@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Olukemi Pharmacy & Supermarket</title>
+
+  <style>
+    :root {
+      --pink: #fce4ec;
+      --pink-dark: #e8a9bd;
+      --ash: #555555;
+      --dark-ash: #333333;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--pink);
+      color: var(--dark-ash);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--white);
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    .logo-box {
+      width: 90px;
+      height: 90px;
+      margin: auto;
+      border-radius: 50%;
+      background: var(--pink);
+      border: 4px solid var(--ash);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 38px;
+
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-7px);
+      }
+    }
+
+    header h1 {
+      color: var(--ash);
+      margin-top: 12px;
+      font-size: 28px;
+    }
+
+    header p {
+      color: var(--pink-dark);
+      font-weight: bold;
+    }
+
+    nav {
+      background: var(--ash);
+      padding: 14px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: var(--pink);
+    }
+
+    .hero {
+      min-height: 500px;
+      padding: 80px 20px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+      background: var(--pink);
+    }
+
+    .hero h2 {
+      max-width: 750px;
+      color: var(--ash);
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .hero h2 span {
+      color: var(--pink-dark);
+    }
+
+    .hero p {
+      max-width: 650px;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .primary {
+      background: var(--ash);
+      color: white;
+    }
+
+    .secondary {
+      background: white;
+      color: var(--ash);
+      border: 2px solid var(--ash);
+    }
+
+    .button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    }
+
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .section-title {
+      color: var(--ash);
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      margin-bottom: 35px;
+    }
+
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: var(--white);
+      width: 270px;
+      padding: 30px 22px;
+      border-radius: 18px;
+
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 14px 30px rgba(0,0,0,0.14);
+    }
+
+    .icon {
+      font-size: 45px;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      color: var(--ash);
+      margin-bottom: 10px;
+    }
+
+    .delivery {
+      background: var(--ash);
+      color: white;
+    }
+
+    .delivery h2 {
+      color: var(--pink);
+    }
+
+    .hours {
+      background: white;
+    }
+
+    .hours-box {
+      max-width: 500px;
+      margin: auto;
+      background: var(--pink);
+      padding: 25px;
+      border-radius: 18px;
+    }
+
+    .hours-box p {
+      margin: 8px;
+    }
+
+    .contact-box {
+      max-width: 650px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    }
+
+    .contact-box p {
+      margin: 10px;
+    }
+
+    footer {
+      background: var(--ash);
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    footer strong {
+      color: var(--pink);
+    }
+
+    @media (max-width: 600px) {
+
+      header h1 {
+        font-size: 22px;
+      }
+
+      .hero h2 {
+        font-size: 30px;
+      }
+
+      nav a {
+        margin: 4px;
+        font-size: 12px;
+      }
+
+      .card {
+        width: 100%;
+        max-width: 330px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+
+    <div class="logo-box">
+      💊🛒
+    </div>
+
+    <h1>Olukemi Pharmacy & Supermarket</h1>
+
+    <p>Your health, your needs, our priority</p>
+
+  </header>
+
+
+  <!-- NAVIGATION -->
+  <nav>
+
+    <a href="#home">Home</a>
+    <a href="#pharmacy">Pharmacy</a>
+    <a href="#supermarket">Supermarket</a>
+    <a href="#contact">Contact</a>
+
+  </nav>
+
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <h2>
+      Your Health. <span>Your Needs.</span>
+      Our Priority.
+    </h2>
+
+    <p>
+      Welcome to Olukemi Pharmacy & Supermarket —
+      your convenient destination for healthcare,
+      groceries and everyday essentials.
+    </p>
+
+    <div class="buttons">
+
+      <a
+        class="button primary"
+        href="https://wa.me/2348165760483?text=Hello%20Olukemi%20Pharmacy%20%26%20Supermarket"
+      >
+        💬 Order on WhatsApp
+      </a>
+
+      <a
+        class="button secondary"
+        href="#pharmacy"
+      >
+        💊 Explore Pharmacy
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- PHARMACY -->
+  <section class="section" id="pharmacy">
+
+    <h2 class="section-title">💊 Our Pharmacy</h2>
+
+    <p class="section-subtitle">
+      Healthcare products for your everyday needs.
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="icon">💊</div>
+
+        <h3>Medicines</h3>
+
+        <p>
+          A wide range of medicines and healthcare products,
+          with appropriate professional guidance.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">🧴</div>
+
+        <h3>Personal Care</h3>
+
+        <p>
+          Personal care, hygiene and everyday wellness products.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">🩺</div>
+
+        <h3>Health Essentials</h3>
+
+        <p>
+          Useful healthcare essentials for you and your family.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SUPERMARKET -->
+  <section class="section" id="supermarket">
+
+    <h2 class="section-title">🛒 Our Supermarket</h2>
+
+    <p class="section-subtitle">
+      Everyday essentials, all in one place.
+    </p>
+
+    <div class="cards">
+
+      <div class="card">
+
+        <div class="icon">🍚</div>
+
+        <h3>Food & Groceries</h3>
+
+        <p>
+          Rice, pasta, cereals and other everyday groceries.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">🥤</div>
+
+        <h3>Drinks & Snacks</h3>
+
+        <p>
+          Refreshing drinks, biscuits, snacks and more.
+        </p>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="icon">🧼</div>
+
+        <h3>Household Items</h3>
+
+        <p>
+          Cleaning products and household essentials.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- DELIVERY -->
+  <section class="section delivery">
+
+    <h2 class="section-title">🚚 Delivery Available</h2>
+
+    <p>
+      Need your items delivered?
+      Contact us to make an enquiry.
+    </p>
+
+    <br>
+
+    <a
+      class="button secondary"
+      href="https://wa.me/2348165760483?text=Hello,%20I%20would%20like%20to%20make%20a%20delivery%20enquiry."
+    >
+      💬 Ask About Delivery
+    </a>
+
+  </section>
+
+
+  <!-- OPENING HOURS -->
+  <section class="section hours">
+
+    <h2 class="section-title">🕐 Opening Hours</h2>
+
+    <div class="hours-box">
+
+      <p>
+        <strong>Monday – Saturday</strong>
+      </p>
+
+      <p>8:00 AM – 9:00 PM</p>
+
+      <hr>
+
+      <p>
+        <strong>Sunday</strong>
+      </p>
+
+      <p>2:00 PM – 9:00 PM</p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+
+    <h2 class="section-title">📞 Visit or Contact Us</h2>
+
+    <div class="contact-box">
+
+      <p>
+        📍 <strong>126 Ogunrun Road, Mowe, Ogun State</strong>
+      </p>
+
+      <p>
+        📞 <strong>08165760483</strong>
+      </p>
+
+      <br>
+
+      <div class="buttons">
+
+        <a
+          class="button primary"
+          href="tel:08165760483"
+        >
+          📞 Call Us
+        </a>
+
+        <a
+          class="button secondary"
+          href="https://wa.me/2348165760483"
+        >
+          💬 WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p>
+      <strong>Olukemi Pharmacy & Supermarket</strong>
+    </p>
+
+    <p>
+      Your health, your needs, our priority.
+    </p>
+
+    <p>
+      © 2026 Olukemi Pharmacy & Supermarket
+    </p>
+
+  </footer>
+
+</body>
+</html>
